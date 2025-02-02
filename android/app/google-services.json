@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "327732650330",
+    "project_id": "nastasiafood",
+    "storage_bucket": "nastasiafood.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327732650330:android:16c05506b9cfaa6df85363",
+        "android_client_info": {
+          "package_name": "com.nastasia.foodcustomer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIVF2aonLqnrjqYw-v0yO8iiS7SEM5NKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
