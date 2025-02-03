@@ -35,10 +35,10 @@ class _EditPickLocationViewState extends State<EditPickLocationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: scaffoldKey,
-        body: SafeArea(
-          child: Center(
-              child: GetBuilder<AddressController>(
+      key: scaffoldKey,
+      body: SafeArea(
+        child: Center(
+          child: GetBuilder<AddressController>(
             builder: (controller) => Stack(
               children: [
                 GoogleMap(
@@ -139,41 +139,44 @@ class _EditPickLocationViewState extends State<EditPickLocationView> {
                   ),
                 ),
                 Positioned(
-                    bottom: 10,
-                    left: 10,
-                    right: 10,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        scaffoldKey.currentState!.showBottomSheet((context) {
-                          return SingleChildScrollView(
-                              child: EditBottomSheetAddress(
-                            addressData: widget.addressData,
-                          ));
-                        });
-                      },
-                      style: !controller.isLoading
-                          ? ElevatedButton.styleFrom(
-                              backgroundColor: AppColor.primaryColor,
-                              minimumSize: Size(328.w, 52.h),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.r),
-                              ),
-                            )
-                          : ElevatedButton.styleFrom(
-                              backgroundColor: AppColor.gray,
-                              minimumSize: Size(328.w, 52.h),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.r),
-                              ),
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      scaffoldKey.currentState!.showBottomSheet((context) {
+                        return SingleChildScrollView(
+                            child: EditBottomSheetAddress(
+                          addressData: widget.addressData,
+                        ));
+                      });
+                    },
+                    style: !controller.isLoading
+                        ? ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.primaryColor,
+                            minimumSize: Size(328.w, 52.h),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.r),
                             ),
-                      child: Text(
-                        "CONFIRM_LOCATION".tr,
-                        style: fontMedium,
-                      ),
-                    )),
+                          )
+                        : ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.gray,
+                            minimumSize: Size(328.w, 52.h),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.r),
+                            ),
+                          ),
+                    child: Text(
+                      "CONFIRM_LOCATION".tr,
+                      style: fontMedium,
+                    ),
+                  ),
+                ),
               ],
             ),
-          )),
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }

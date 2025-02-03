@@ -29,7 +29,7 @@ class CategoryWiseItemModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": data == null ? null : data!.toJson(),
+        "data": data?.toJson(),
       };
 }
 

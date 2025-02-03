@@ -129,8 +129,7 @@ class MyOrderData {
         "delivery_charge": deliveryCharge == null ? null : deliveryCharge,
         "total": total == null ? null : total,
         "order_type": orderType == null ? null : orderType,
-        "order_datetime":
-            orderDatetime == null ? null : orderDatetime!.toIso8601String(),
+        "order_datetime": orderDatetime?.toIso8601String(),
         "convert_order_datetime":
             convertOrderDatetime == null ? null : convertOrderDatetime,
         "is_advance_order": isAdvanceOrder == null ? null : isAdvanceOrder,

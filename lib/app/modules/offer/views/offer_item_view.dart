@@ -64,117 +64,121 @@ class _OfferItemViewState extends State<OfferItemView> {
             ? const OfferShimmer()
             : Stack(
                 children: [
-                  Column(
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.r),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 10.h),
-                                child: Container(
-                                  height: 84.h,
-                                  width: 328.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                    child: CachedNetworkImage(
-                                      imageUrl: offerController
-                                          .offerItemModel.data!.image!,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                            // colorFilter: ColorFilter.mode(
-                                            //     Colors.red,
-                                            //     BlendMode.colorBurn),
-                                          ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.r),
+                    child: Column(
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10.h),
+                              child: Container(
+                                height: 84.h,
+                                width: 328.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16.r),
+                                  child: CachedNetworkImage(
+                                    imageUrl: offerController
+                                        .offerItemModel.data!.image!,
+                                    imageBuilder: (context, imageProvider) =>
+                                        Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: imageProvider,
+                                          fit: BoxFit.cover,
+                                          // colorFilter: ColorFilter.mode(
+                                          //     Colors.red,
+                                          //     BlendMode.colorBurn),
                                         ),
                                       ),
-                                      placeholder: (context, url) =>
-                                          Shimmer.fromColors(
-                                        child: Container(
-                                            height: 60.h,
-                                            width: 60.w,
-                                            color: Colors.grey),
-                                        baseColor: Colors.grey[300]!,
-                                        highlightColor: Colors.grey[400]!,
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          const Icon(Icons.error),
                                     ),
+                                    placeholder: (context, url) =>
+                                        Shimmer.fromColors(
+                                      child: Container(
+                                          height: 60.h,
+                                          width: 60.w,
+                                          color: Colors.grey),
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.grey[400]!,
+                                    ),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 34.h,
-                                child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        offerController
-                                            .offerItemModel.data!.name!,
-                                        style: fontBoldWithColor,
-                                      ),
-                                      SizedBox(
-                                          height: 24.h,
-                                          width: 66.w,
-                                          child: Row(
-                                            children: [
-                                              InkWell(
-                                                onTap: () {
-                                                  box.write('viewValue', 0);
-                                                  (context as Element)
-                                                      .markNeedsBuild();
-                                                },
-                                                child: SizedBox(
-                                                  width: 20.w,
-                                                  height: 20.h,
-                                                  child: SvgPicture.asset(
-                                                    Images.iconListView,
-                                                    fit: BoxFit.cover,
-                                                    color: box.read(
-                                                                'viewValue') ==
-                                                            0
-                                                        ? AppColor.primaryColor
-                                                        : AppColor.fontColor,
-                                                  ),
+                            ),
+                            SizedBox(
+                              height: 34.h,
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      offerController
+                                          .offerItemModel.data!.name!,
+                                      style: fontBoldWithColor,
+                                    ),
+                                    SizedBox(
+                                        height: 24.h,
+                                        width: 66.w,
+                                        child: Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                box.write('viewValue', 0);
+                                                (context as Element)
+                                                    .markNeedsBuild();
+                                              },
+                                              child: SizedBox(
+                                                width: 20.w,
+                                                height: 20.h,
+                                                child: SvgPicture.asset(
+                                                  Images.iconListView,
+                                                  fit: BoxFit.cover,
+                                                  color:
+                                                      box.read('viewValue') == 0
+                                                          ? AppColor
+                                                              .primaryColor
+                                                          : AppColor.fontColor,
                                                 ),
                                               ),
-                                              SizedBox(
-                                                width: 18.w,
-                                              ),
-                                              InkWell(
-                                                onTap: () {
-                                                  box.write('viewValue', 1);
-                                                  (context as Element)
-                                                      .markNeedsBuild();
-                                                },
-                                                child: SizedBox(
-                                                  width: 20.w,
-                                                  height: 20.h,
-                                                  child: SvgPicture.asset(
-                                                    Images.iconGridView,
-                                                    fit: BoxFit.cover,
-                                                    color: box.read(
-                                                                'viewValue') ==
-                                                            1
-                                                        ? AppColor.primaryColor
-                                                        : AppColor.fontColor,
-                                                  ),
+                                            ),
+                                            SizedBox(
+                                              width: 18.w,
+                                            ),
+                                            InkWell(
+                                              onTap: () {
+                                                box.write('viewValue', 1);
+                                                (context as Element)
+                                                    .markNeedsBuild();
+                                              },
+                                              child: SizedBox(
+                                                width: 20.w,
+                                                height: 20.h,
+                                                child: SvgPicture.asset(
+                                                  Images.iconGridView,
+                                                  fit: BoxFit.cover,
+                                                  color:
+                                                      box.read('viewValue') == 1
+                                                          ? AppColor
+                                                              .primaryColor
+                                                          : AppColor.fontColor,
                                                 ),
                                               ),
-                                            ],
-                                          ))
-                                    ]),
-                              ),
+                                            ),
+                                          ],
+                                        ))
+                                  ]),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                            child: SingleChildScrollView(
+                          child: Column(
+                            children: [
                               offerController.offeritemList.isNotEmpty
                                   ? Padding(
                                       padding: EdgeInsets.only(top: 17.h),
@@ -192,9 +196,9 @@ class _OfferItemViewState extends State<OfferItemView> {
                                   : const NoItemsAvailable(),
                             ],
                           ),
-                        ),
-                      ),
-                    ],
+                        ))
+                      ],
+                    ),
                   ),
                   const BottomCartWidget()
                 ],
@@ -225,9 +229,9 @@ Widget offerItemSectionList(List<ItemData> itemDetails) {
   return Column(
     children: [
       ListView.builder(
-          primary: false,
           shrinkWrap: true,
           itemCount: itemDetails.length,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (BuildContext context, index) {
             return itemCardList(itemDetails, index, context);
           }),

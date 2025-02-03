@@ -49,22 +49,22 @@ class AddressListData {
 
   factory AddressListData.fromJson(Map<String, dynamic> json) =>
       AddressListData(
-        id: json["id"] == null ? null : json["id"]!,
-        userId: json["user_id"] == null ? null : json["user_id"]!,
-        label: json["label"] == null ? null : json["label"]!,
-        address: json["address"] == null ? null : json["address"]!,
-        apartment: json["apartment"] == null ? null : json["apartment"]!,
-        latitude: json["latitude"] == null ? null : json["latitude"]!,
-        longitude: json["longitude"] == null ? null : json["longitude"]!,
+        id: json["id"],
+        userId: json["user_id"],
+        label: json["label"],
+        address: json["address"],
+        apartment: json["apartment"],
+        latitude: json["latitude"],
+        longitude: json["longitude"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id!,
-        "user_id": userId == null ? null : userId!,
-        "label": label == null ? null : label!,
-        "address": address == null ? null : address!,
-        "apartment": apartment == null ? null : apartment!,
-        "latitude": latitude == null ? null : latitude!,
-        "longitude": longitude == null ? null : longitude!,
+        "id": id,
+        "user_id": userId,
+        "label": label,
+        "address": address,
+        "apartment": apartment,
+        "latitude": latitude,
+        "longitude": longitude,
       };
 }

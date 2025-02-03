@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:foodcustomer/app/modules/splash/controllers/splash_controller.dart';
+import 'package:foodking/app/modules/splash/controllers/splash_controller.dart';
 import 'package:get/get.dart';
 import '../../../../util/api-list.dart';
 import '../../../../widget/custom_snackbar.dart';

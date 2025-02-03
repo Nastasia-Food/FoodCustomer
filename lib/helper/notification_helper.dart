@@ -41,15 +41,16 @@ class NotificationHelper {
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
     var androidInitialize =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    var iOSInitialize = new IOSInitializationSettings();
+    var iOSInitialize = new DarwinInitializationSettings();
     var initializationsSettings = new InitializationSettings(
         android: androidInitialize, iOS: iOSInitialize);
 
     flutterLocalNotificationsPlugin.initialize(initializationsSettings,
-        onSelectNotification: (String? payload) async {
+        onDidReceiveNotificationResponse: (payload) async {
       try {
-        if (payload != null && payload != '') {
-          PayLoadBody payLoadBody = PayLoadBody.fromJson(jsonDecode(payload));
+        if (payload.payload != null && payload.payload != '') {
+          PayLoadBody payLoadBody =
+              PayLoadBody.fromJson(jsonDecode(payload.payload!));
           if (payLoadBody.topicName == 'Order Notification') {
             Get.to(() => OrderView());
           }

@@ -2,7 +2,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:foodcustomer/widget/custom_snackbar.dart';
+import 'package:foodking/widget/custom_snackbar.dart';
 import 'package:get/get.dart';
 import '../../../../util/api-list.dart';
 import '../../../../util/constant.dart';

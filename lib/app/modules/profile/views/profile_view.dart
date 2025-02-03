@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodcustomer/app/modules/profile/views/pages_screen.dart';
+import 'package:foodking/app/modules/profile/views/pages_screen.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shimmer/shimmer.dart';
@@ -113,8 +113,6 @@ class _ProfileViewState extends State<ProfileView> {
                                                               image:
                                                                   imageProvider,
                                                               fit: BoxFit.cover,
-                                                              // colorFilter: ColorFilter.mode(
-                                                              //     Colors.red, BlendMode.colorBurn),
                                                             ),
                                                           ),
                                                         ),
@@ -351,21 +349,26 @@ class _ProfileViewState extends State<ProfileView> {
                           GetBuilder<SplashController>(
                             builder: (splashController) => SizedBox(
                               child: ListView.builder(
+                                  padding: EdgeInsets.symmetric(vertical: 8.h),
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemCount:
                                       splashController.pageDataList.length,
                                   itemBuilder: (BuildContext context, index) {
-                                    return profileItem(
-                                        PagesScreen(
-                                          description: splashController
-                                              .pageDataList[index].description,
-                                          tittle: splashController
-                                              .pageDataList[index].title,
-                                        ),
-                                        Images.terms_condition,
-                                        splashController
-                                            .pageDataList[index].title);
+                                    return Padding(
+                                      padding: EdgeInsets.only(bottom: 12.h),
+                                      child: profileItem(
+                                          PagesScreen(
+                                            description: splashController
+                                                .pageDataList[index]
+                                                .description,
+                                            tittle: splashController
+                                                .pageDataList[index].title,
+                                          ),
+                                          Images.terms_condition,
+                                          splashController
+                                              .pageDataList[index].title),
+                                    );
                                   }),
                             ),
                           ),
@@ -379,9 +382,6 @@ class _ProfileViewState extends State<ProfileView> {
                               },
                               child: Column(
                                 children: [
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
                                   Row(
                                     children: [
                                       SvgPicture.asset(
@@ -400,7 +400,7 @@ class _ProfileViewState extends State<ProfileView> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 10.h,
+                                    height: 14.h,
                                   ),
                                 ],
                               ),
@@ -558,9 +558,6 @@ class _ProfileViewState extends State<ProfileView> {
       onTap: () => Get.to(route, transition: Transition.cupertino),
       child: Column(
         children: [
-          SizedBox(
-            height: 10.h,
-          ),
           Row(
             children: [
               SvgPicture.asset(
@@ -579,7 +576,7 @@ class _ProfileViewState extends State<ProfileView> {
             ],
           ),
           SizedBox(
-            height: 10.h,
+            height: 14.h,
           ),
           const Divider(
             thickness: 1,

@@ -88,19 +88,20 @@ class _HomeViewState extends State<HomeView> {
                                             'SELECT_BRANCH'.tr,
                                             style: fontRegular,
                                           ),
-                                          icon: SvgPicture.asset(
-                                            Images.iconBranch,
-                                            fit: BoxFit.cover,
-                                            color: AppColor.primaryColor,
-                                            height: 25.h,
-                                            width: 25.w,
+                                          iconStyleData: IconStyleData(
+                                            icon: SvgPicture.asset(
+                                              Images.iconBranch,
+                                              fit: BoxFit.cover,
+                                              color: AppColor.primaryColor,
+                                              height: 25.h,
+                                              width: 25.w,
+                                            ),
                                           ),
-                                          iconSize: 20.sp,
-                                          buttonHeight: 50.h,
-                                          dropdownDecoration: BoxDecoration(
+                                          dropdownStyleData: DropdownStyleData(
+                                              decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(15.r),
-                                          ),
+                                          )),
                                           items: homeController.branchDataList
                                               .map((item) =>
                                                   DropdownMenuItem<String>(

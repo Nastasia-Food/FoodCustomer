@@ -35,6 +35,7 @@ class AddressController extends GetxController {
   List<AddressListData> addressDataList = <AddressListData>[];
   List<String> addressTypeList = ['Home', 'Office', 'Others'];
   String selectedAddressType = "Home";
+  final selectLabel = "".obs;
 
   Position position = Position(
     longitude: 0.0,

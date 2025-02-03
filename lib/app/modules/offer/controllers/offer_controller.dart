@@ -23,7 +23,7 @@ class OfferController extends GetxController {
 
   @override
   void onInit() {
-    getOfferList();
+    // getOfferList();
     super.onInit();
   }
 

@@ -1,18 +1,18 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodcustomer/util/constant.dart';
+import 'package:foodking/util/constant.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PagesScreen extends StatefulWidget {
   final String? tittle;
   final String? description;
-  PagesScreen({Key? key, this.tittle, this.description}) : super(key: key);
+  const PagesScreen({Key? key, this.tittle, this.description})
+      : super(key: key);
   @override
   State<PagesScreen> createState() => _PagesScreenState();
 }

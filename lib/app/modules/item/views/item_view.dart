@@ -1446,11 +1446,10 @@ Widget multiVariation(context, ItemData itemdetails) {
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton2(
                           isExpanded: true,
-                          iconSize: 20,
-                          buttonHeight: 50,
-                          dropdownDecoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
+                          dropdownStyleData: DropdownStyleData(
+                              decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.r),
+                          )),
                           hint: Text(
                             'Select Options',
                             style: fontRegular,

@@ -3,9 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
-
 import '../../../../../util/constant.dart';
 import '../../../../../util/style.dart';
 import '../../../../data/model/response/address_list_model.dart';
@@ -13,7 +11,6 @@ import '../../controllers/address_controller.dart';
 
 class EditBottomSheetAddress extends StatefulWidget {
   AddressListData? addressData;
-
   EditBottomSheetAddress({
     Key? key,
     this.addressData,
@@ -26,6 +23,20 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
   final TextEditingController labelController = TextEditingController();
 
   TextEditingController appartmentController = TextEditingController();
+  AddressController addressController = Get.put(AddressController());
+
+  @override
+  void initState() {
+    addressController.selectLabel.value = widget.addressData?.label ?? "";
+
+    if (widget.addressData!.label! != addressController.addressTypeList[0] &&
+        widget.addressData!.label! != addressController.addressTypeList[1]) {
+      labelController.text = widget.addressData?.label ?? "";
+      addressController.selectLabel.value =
+          addressController.addressTypeList[2];
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +46,14 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
       appartmentController.text = widget.addressData!.apartment!;
     }
 
-    labelController.text = widget.addressData!.label!;
-
     return SafeArea(
       child: GetBuilder<AddressController>(
         builder: (addressController) => Container(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16), topRight: Radius.circular(16)),
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -54,8 +65,6 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
                 blurRadius: 30.r,
                 spreadRadius: 10.r,
               ),
-              //BoxShadow
-              //BoxShadow
             ],
           ),
           child: Padding(
@@ -151,62 +160,94 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
                         scrollDirection: Axis.horizontal,
                         itemCount: addressController.addressTypeList.length,
                         itemBuilder: (BuildContext context, index) {
+                          // print("checking label====================");
+
+                          // print("coming label = ${widget.addressData!.label!}");
+                          // print(
+                          //     "Existing label = ${addressController.addressTypeList[index]}");
+
                           return Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: InkWell(
-                              // onTap: () {
-                              //   addressController
-                              //       .setAddressTypeIndex(index);
-                              // },
+                              onTap: () {
+                                // addressController.setAddressTypeIndex(index);
+                                addressController.selectLabel.value =
+                                    addressController.addressTypeList[index];
+                              },
                               child: Column(
                                 children: [
-                                  Container(
-                                    height: 48.h,
-                                    width: 88.w,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.r),
-                                      color: addressController
-                                                  .addressTypeList[index] ==
-                                              widget.addressData!.label!
-                                          ? AppColor.primaryColor
-                                              .withOpacity(0.08)
-                                          : AppColor.itembg,
-                                      border: addressController
-                                                  .addressTypeList[index] ==
-                                              widget.addressData!.label!
-                                          ? Border.all(
-                                              color: AppColor.primaryColor)
-                                          : Border.all(color: Colors.white),
-                                    ),
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                            width: 20.w,
-                                            height: 20.h,
-                                            child: SvgPicture.asset(
-                                              Images.homeIcon,
-                                              fit: BoxFit.cover,
-                                              color: addressController
-                                                              .addressTypeList[
-                                                          index] ==
-                                                      widget.addressData!.label!
-                                                  ? null
-                                                  : AppColor.gray,
-                                            )),
-                                        SizedBox(
-                                          width: 8.w,
-                                        ),
-                                        Text(
-                                          addressController
-                                              .addressTypeList[index],
-                                          style: fontMediumPro,
-                                        )
-                                      ],
-                                    ),
+                                  Obx(
+                                    () => addressController.selectLabel.value ==
+                                            "-1"
+                                        ? const SizedBox()
+                                        : Container(
+                                            height: 48.h,
+                                            width: 88.w,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.r),
+                                              color:
+                                                  //  addressController
+                                                  //                 .addressTypeList[index] ==
+                                                  //             widget.addressData!.label!
+
+                                                  //              ||
+                                                  addressController.selectLabel
+                                                              .value ==
+                                                          addressController
+                                                                  .addressTypeList[
+                                                              index]
+                                                      ? AppColor.primaryColor
+                                                          .withOpacity(0.08)
+                                                      : AppColor.itembg,
+                                              border:
+
+                                                  //  addressController
+                                                  //                 .addressTypeList[index] ==
+                                                  //             widget.addressData!.label! ||
+                                                  addressController.selectLabel
+                                                              .value ==
+                                                          addressController
+                                                                  .addressTypeList[
+                                                              index]
+                                                      ? Border.all(
+                                                          color: AppColor
+                                                              .primaryColor)
+                                                      : Border.all(
+                                                          color: Colors.white),
+                                            ),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  width: 20.w,
+                                                  height: 20.h,
+                                                  child: SvgPicture.asset(
+                                                    Images.homeIcon,
+                                                    fit: BoxFit.cover,
+                                                    color: addressController
+                                                                    .addressTypeList[
+                                                                index] ==
+                                                            widget.addressData!
+                                                                .label!
+                                                        ? null
+                                                        : AppColor.gray,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 8.w,
+                                                ),
+                                                Text(
+                                                  addressController
+                                                      .addressTypeList[index],
+                                                  style: fontMediumPro,
+                                                )
+                                              ],
+                                            ),
+                                          ),
                                   ),
                                 ],
                               ),
@@ -214,32 +255,37 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
                           );
                         }),
                   ),
-                  if (widget.addressData!.label!.toString() != "Home" &&
-                      widget.addressData!.label!.toString() != "Office")
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: SizedBox(
-                        child: TextField(
-                          controller: labelController,
-                          expands: false,
-                          decoration: InputDecoration(
-                            fillColor: AppColor.searchBarbg,
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0.r)),
-                              borderSide: BorderSide(
-                                  color: AppColor.searchBarbg, width: 2.0.w),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0.r)),
-                              borderSide: BorderSide(
-                                  width: 2.w, color: AppColor.dividerColor),
+                  Obx(
+                    () => addressController.selectLabel.value !=
+                            addressController.addressTypeList[2]
+                        ? const SizedBox()
+                        : Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: SizedBox(
+                              child: TextField(
+                                controller: labelController,
+                                expands: false,
+                                decoration: InputDecoration(
+                                  fillColor: AppColor.searchBarbg,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(12.0.r)),
+                                    borderSide: BorderSide(
+                                        color: AppColor.searchBarbg,
+                                        width: 2.0.w),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(12.0.r)),
+                                    borderSide: BorderSide(
+                                        width: 2.w,
+                                        color: AppColor.dividerColor),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
+                  ),
                 ],
               ),
               Padding(
@@ -252,7 +298,10 @@ class _EditAddressViewState extends State<EditBottomSheetAddress> {
                       onPressed: () {
                         addressController.updateAddress(
                             widget.addressData!.id.toString(),
-                            labelController.text,
+                            addressController.selectLabel.value ==
+                                    addressController.addressTypeList[2]
+                                ? labelController.text
+                                : addressController.selectLabel.value,
                             appartmentController.text);
                       },
                       style: ElevatedButton.styleFrom(

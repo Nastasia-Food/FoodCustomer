@@ -44,7 +44,7 @@ void main() async {
       designSize: const Size(360, 800),
       builder: ((context, child) => GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: "Food Customer",
+            title: "FoodKing",
             translations: Languages(),
             theme: ThemeData(useMaterial3: false),
             locale: langValue,

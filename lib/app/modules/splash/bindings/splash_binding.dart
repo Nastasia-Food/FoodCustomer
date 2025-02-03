@@ -1,6 +1,6 @@
-import 'package:foodcustomer/app/modules/home/controllers/home_controller.dart';
-import 'package:foodcustomer/app/modules/menu/controllers/menu_controller.dart';
-import 'package:foodcustomer/app/modules/profile/controllers/profile_controller.dart';
+import 'package:foodking/app/modules/home/controllers/home_controller.dart';
+import 'package:foodking/app/modules/menu/controllers/menu_controller.dart';
+import 'package:foodking/app/modules/profile/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 import '../../address/controllers/address_controller.dart';
 import '../../auth/controllers/auth_controller.dart';
