@@ -1,5 +1,9 @@
 # FoodCustomer
 
+https://api.codemagic.io/apps/67a0ca6b18ca6800775873c9/67a0ca6b18ca6800775873c8/status_badge.svg
+
+[![Codemagic build status](https://api.codemagic.io/apps/67a0ca6b18ca6800775873c9/67a0ca6b18ca6800775873c8/status_badge.svg)](https://codemagic.io/app/67a0ca6b18ca6800775873c9/67a0ca6b18ca6800775873c8/latest_build)
+
 ```markdown
 # FoodCustomer 🍕📱
 
