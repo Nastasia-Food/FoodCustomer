@@ -47,7 +47,7 @@ dependencies:
   flutter_inappwebview: ^5.7.2+3
   path_provider: ^2.0.14
   map_launcher: ^2.5.0+1
-  easy_stepper: ^0.5.2+1
+  easy_stepper: ^0.8.3
   flutter_html:
 
   flutter:
