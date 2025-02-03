@@ -29,7 +29,7 @@ dependencies:
   geolocator: ^9.0.2
   geocoding: ^2.1.0
   flutter_google_places: ^0.3.0
-  flutter_typeahead: ^4.3.7
+  flutter_typeahead: ^5.2.0
   custom_map_markers: ^0.0.2+1
   connectivity: ^3.0.6
   url_launcher: ^6.1.10
