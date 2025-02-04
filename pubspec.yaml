@@ -1,5 +1,5 @@
-name: nastasiacustomer
-version: 1.0.10+15
+name: foodcustomer
+version: 1.1.10+16
 publish_to: none
 description: NataLee Pro Food Ecosystem is a groundbreaking initiative designed to revolutionize the way we approach food production, consumption, and sustainability.
 environment:
