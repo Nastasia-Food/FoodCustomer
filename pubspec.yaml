@@ -26,7 +26,7 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.2.3
   google_maps_flutter: ^2.2.5
-  geolocator: ^9.0.2
+  geolocator: ^13.0.2
   geocoding: ^2.1.0
   flutter_google_places: ^0.3.0
   flutter_typeahead: ^5.2.0
