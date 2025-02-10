@@ -46,7 +46,7 @@ dependencies:
   flutter_staggered_grid_view: ^0.4.1
   flutter_inappwebview: ^5.7.2+3
   path_provider: ^2.0.14
-  map_launcher: ^2.5.0+1
+  map_launcher: ^3.5.0
   easy_stepper: ^0.8.3
   flutter_html:
 
