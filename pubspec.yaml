@@ -23,7 +23,7 @@ dependencies:
   country_picker: ^2.0.20
   dropdown_button2: ^1.9.1
   flutter_chat_ui: ^1.6.6
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   cached_network_image: ^3.2.3
   google_maps_flutter: ^2.2.5
   geolocator: ^9.0.2
