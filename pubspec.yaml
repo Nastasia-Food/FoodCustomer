@@ -10,7 +10,7 @@ dependencies:
   get: ^4.6.5
   animated_bottom_navigation_bar: ^1.2.0
   flutter_screenutil: ^5.7.0
-  image_picker: ^0.8.7+3
+  image_picker: ^1.1.2
   get_storage: ^2.1.1
   flutter_svg: ^2.0.5
   lottie: ^2.3.2
