@@ -37,7 +37,7 @@ dependencies:
   firebase_messaging: ^14.4.0
   firebase_core: ^2.9.0
   flutter_local_notifications: ^18.0.1
-  flutter_launcher_icons: ^0.13.0
+  flutter_launcher_icons: ^0.14.3
   shared_preferences: ^2.1.0
   rflutter_alert: ^2.0.4
   im_stepper: ^1.0.1+1
