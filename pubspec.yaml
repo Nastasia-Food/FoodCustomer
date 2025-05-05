@@ -22,7 +22,7 @@ dependencies:
   expandable: ^5.0.1
   country_picker: ^2.0.20
   dropdown_button2: ^2.3.9
-  flutter_chat_ui: ^1.6.6
+  flutter_chat_ui: ^2.1.1
   shimmer: ^3.0.0
   cached_network_image: ^3.2.3
   google_maps_flutter: ^2.2.5
